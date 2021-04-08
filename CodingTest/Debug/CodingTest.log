@@ -1,0 +1,3 @@
+﻿  PhoneNumberList.cpp
+c1xx : warning C4199: C++/CLI, C++/CX 또는 OpenMP에서는 2단계 이름 조회가 지원되지 않습니다. /Zc:twoPhase-를 사용하세요.
+  CodingTest.vcxproj -> C:\Users\leeh3\Documents\GitHub\CodingTest\CodingTest\Debug\CodingTest.exe

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hash">
+      <UniqueIdentifier>{5b86093e-a96a-46f5-8416-ea1ebc65037d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PhoneNumberList.cpp">
+      <Filter>Hash</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -6,7 +6,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PhoneNumberList.cpp">
+    <None Include="PhoneNumberList.cpp">
+      <Filter>Hash</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FunctionDev.cpp">
       <Filter>Hash</Filter>
     </ClCompile>
   </ItemGroup>

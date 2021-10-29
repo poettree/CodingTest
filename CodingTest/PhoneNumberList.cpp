@@ -12,7 +12,6 @@ bool solution(vector<string> phone_book) {
 	int count = 1;
 	//기존 벡터 사이즈 계산 위해서 origin 벡터 생성
 	vector<string> origin = phone_book;
-	vector<int> checker = {};
 	int check = 0;
 	int max = 0;
 
@@ -26,34 +25,30 @@ bool solution(vector<string> phone_book) {
 
 	for (int i = 0; i < phone_book.size(); i++)
 	{
-		checker.clear();
-		check = 0;
 
-		if (i >= phone_book.size()-1)
-			count = 0;
-
-		for (int k = 0; k < origin.size(); k++)
+		for (int k = 0; k < phone_book.size(); k++)
 		{
+			check = 0;
+
+			if (k >= phone_book.size() - 1)
+				count = 0;
+
+			//TODO: 접두어 순차 확인하기
 			if (k != count)
-				for (int j = 0; j < origin[i].size(); j++)
-				{
-					if (origin[k][j] == phone_book[count][j])
-						checker.push_back(1);
-				}
-			else continue;
-		}
-
-		for (int j = 0; j < checker.size(); j++)
-		{
-			check += checker[j];
-			if (check == origin[i].size())
 			{
-				answer = false;
-				break;
-			}
-		}
+				for (int j = 0; j < origin[k].size(); j++)
+				{
+					if (phone_book[k][j] == phone_book[count][j])
+						check++;
 
-		count++;
+				if (check == origin[k].size()) { answer = false; break; }
+				cout << "Check: " << check << endl;
+				}
+
+
+			}
+				count++;
+		}
 
 		cout << endl;
 	}
@@ -63,9 +58,8 @@ bool solution(vector<string> phone_book) {
 	cout << ' ' << *it;
 
 	cout << endl;
-	cout << answer;
+	cout << "Answer: " << answer;
 	cout << endl;
-	cout << max;
 	cout << endl;
 
 	return answer;
@@ -73,7 +67,7 @@ bool solution(vector<string> phone_book) {
 
 int main()
 {
-	string numbers[] = { "43466", "431", "432" , "431121"};
+	string numbers[] = { "119", "97674223", "1195524421" };
 	vector<string>phone_book;
 	for (int i = 0; i < size(numbers); i++)
 	{

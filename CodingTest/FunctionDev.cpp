@@ -8,11 +8,13 @@
 
 using namespace std;
 
-vector<int> solution(queue<int> progresses, queue<int> speeds) {
+vector<int> solution(vector<int> progresses, vector<int> speeds) {
 #pragma region Various
+	vector<int> checker;
 	vector<int> answer;
 	bool finish = true;
 	int count = 0;
+	int num = 1;
 #pragma endregion
 
 
@@ -24,56 +26,81 @@ vector<int> solution(queue<int> progresses, queue<int> speeds) {
 	}
 
 	while (finish) {
+		count++;
 
-		for (int i = 0; i < progresses.size(); i++)
-		{
-			count++;
+		for (int i = 0; i < progresses.size(); i++) {
+			progresses[i] += speeds[i];
 
-			progresses.front() += speeds.front();
-
-			if (progresses.front() >= 100)
-			{
-				answer.push_back(count);
-				progresses.pop();
-				speeds.pop();
-				count = 0;
+			if (progresses.front() >= 100) {
+				checker.push_back(count);
+				progresses.erase(progresses.begin());
+				speeds.erase(speeds.begin());
 			}
 
-			if (progresses.empty())
-			{
+			if (progresses.empty()) {
 				finish = false;
 			}
+
 		}
 	}
 
-	unique(answer.begin(), answer.end());
+	for (int i = 0; i < checker.size(); i++)
+	{
+		cout << checker[i] << ", ";
+	}
+
+	for (int i = 0; i < checker.size(); i++) {
+		if (checker.size() > i + 1) {
+			if (checker[i] == checker[i + 1]) {
+				num++;
+			}
+			else {
+				answer.push_back(num);
+				num = 1;
+			}
+		}
+		else {
+			answer.push_back(1);
+		}
+	}
 
 	return answer;
 }
 
 int main() {
 	
-	queue<int> progresses;
-	queue<int> speeds;
-
+	vector<int> progresses;
+	vector<int> speeds;
+	vector<int> checker;
 	vector<int> answer;
 
-	progresses.push(93);
-	progresses.push(30);
-	progresses.push(55);
+	int num = 1;
 
-	speeds.push(1);
-	speeds.push(30);
-	speeds.push(5);
+	#pragma region PutData
+		progresses.push_back(95);
+		progresses.push_back(90);
+		progresses.push_back(99);
+		progresses.push_back(99);
+		progresses.push_back(80);
+		progresses.push_back(99);
 
-	solution(progresses, speeds);
+		speeds.push_back(1);
+		speeds.push_back(1);
+		speeds.push_back(1);
+		speeds.push_back(1);
+		speeds.push_back(1);
+		speeds.push_back(1);
+	#pragma endregion
+
+		for (int i = 0; i < solution(progresses, speeds).size(); i++)
+		{
+			cout << solution(progresses, speeds)[i]<<endl;
+		}
 	
-	for (int i = 0; i < solution(progresses,speeds).size(); i++)
-	{
-		cout << solution(progresses, speeds)[i]<<endl;
-	}
+	
 
-	//system("pause");
+
+	system("pause");
 
 	return 0;
 }

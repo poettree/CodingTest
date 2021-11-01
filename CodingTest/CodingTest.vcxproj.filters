@@ -4,6 +4,9 @@
     <Filter Include="Hash">
       <UniqueIdentifier>{5b86093e-a96a-46f5-8416-ea1ebc65037d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Stack+Queue">
+      <UniqueIdentifier>{a90619f4-75fb-4963-abad-cfcdec0ab6e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="PhoneNumberList.cpp">
@@ -12,7 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FunctionDev.cpp">
-      <Filter>Hash</Filter>
+      <Filter>Stack+Queue</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

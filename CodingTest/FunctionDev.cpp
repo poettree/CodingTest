@@ -4,13 +4,15 @@
 #include <vector>
 #include <windows.h>
 #include <queue>
+#include<algorithm>
 
 using namespace std;
 
-vector<int> solution(vector<int> progresses, vector<int> speeds) {
+vector<int> solution(queue<int> progresses, queue<int> speeds) {
 #pragma region Various
 	vector<int> answer;
-	bool finish = false;
+	bool finish = true;
+	int count = 0;
 #pragma endregion
 
 
@@ -22,42 +24,56 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
 	}
 
 	while (finish) {
+
 		for (int i = 0; i < progresses.size(); i++)
 		{
-			progresses[i] += speeds[i];
+			count++;
 
-			if (progresses[i] >= 100)
+			progresses.front() += speeds.front();
+
+			if (progresses.front() >= 100)
 			{
-				answer.push_back(i+1);
-				progresses.pop_back();
+				answer.push_back(count);
+				progresses.pop();
+				speeds.pop();
+				count = 0;
+			}
+
+			if (progresses.empty())
+			{
+				finish = false;
 			}
 		}
-
-		
 	}
+
+	unique(answer.begin(), answer.end());
 
 	return answer;
 }
 
 int main() {
-	vector<int> progresses;
-	vector<int> speeds;
+	
+	queue<int> progresses;
+	queue<int> speeds;
 
-	const queue
+	vector<int> answer;
 
-	progresses.push_back(93);
-	progresses.push_back(30);
-	progresses.push_back(55);
+	progresses.push(93);
+	progresses.push(30);
+	progresses.push(55);
 
-	speeds.push_back(1);
-	speeds.push_back(30);
-	speeds.push_back(5);
-
+	speeds.push(1);
+	speeds.push(30);
+	speeds.push(5);
 
 	solution(progresses, speeds);
-
-	system("pause");
 	
+	for (int i = 0; i < solution(progresses,speeds).size(); i++)
+	{
+		cout << solution(progresses, speeds)[i]<<endl;
+	}
+
+	//system("pause");
 
 	return 0;
 }

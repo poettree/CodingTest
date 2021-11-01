@@ -1,3 +1,5 @@
 ﻿  FunctionDev.cpp
 c1xx : warning C4199: C++/CLI, C++/CX 또는 OpenMP에서는 2단계 이름 조회가 지원되지 않습니다. /Zc:twoPhase-를 사용하세요.
-LINK : fatal error LNK1209: 'C:\Users\leeh3\Documents\GitHub\CodingTest\Debug\CodingTest.pdb' 프로그램 데이터베이스가 이전 링크와 다릅니다. 다시 링크하거나 다시 빌드하십시오.
+c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(28): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(71): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  CodingTest.vcxproj -> C:\Users\leeh3\Documents\GitHub\CodingTest\CodingTest\Debug\CodingTest.exe

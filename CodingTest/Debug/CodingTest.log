@@ -1,12 +1,5 @@
-﻿  FunctionDev.cpp
-D:\Git\CodingTest\CodingTest\FunctionDev.cpp(28,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-D:\Git\CodingTest\CodingTest\FunctionDev.cpp(29,25): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-          with
-          [
-              _Ty=int
-          ]
-D:\Git\CodingTest\CodingTest\FunctionDev.cpp(32,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-D:\Git\CodingTest\CodingTest\FunctionDev.cpp(38,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-D:\Git\CodingTest\CodingTest\FunctionDev.cpp(41,16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-D:\Git\CodingTest\CodingTest\FunctionDev.cpp(50,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  Printer.cpp
+D:\Git\CodingTest\CodingTest\Printer.cpp(13,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git\CodingTest\CodingTest\Printer.cpp(44,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git\CodingTest\CodingTest\Printer.cpp(55,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
   CodingTest.vcxproj -> D:\Git\CodingTest\Debug\CodingTest.exe

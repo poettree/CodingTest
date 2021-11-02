@@ -12,9 +12,12 @@
     <None Include="PhoneNumberList.cpp">
       <Filter>Hash</Filter>
     </None>
+    <None Include="FunctionDev.cpp">
+      <Filter>Stack+Queue</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FunctionDev.cpp">
+    <ClCompile Include="Printer.cpp">
       <Filter>Stack+Queue</Filter>
     </ClCompile>
   </ItemGroup>

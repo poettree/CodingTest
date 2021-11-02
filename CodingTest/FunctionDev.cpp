@@ -25,43 +25,28 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
 		system("Pause");
 	}
 
-	while (finish) {
-		count++;
-
-		for (int i = 0; i < progresses.size(); i++) {
-			progresses[i] += speeds[i];
-
-			if (progresses.front() >= 100) {
-				checker.push_back(count);
-				progresses.erase(progresses.begin());
-				speeds.erase(speeds.begin());
-			}
-
-			if (progresses.empty()) {
-				finish = false;
-			}
-
-		}
-	}
-
-	for (int i = 0; i < checker.size(); i++)
-	{
-		cout << checker[i] << ", ";
+	for (int i = 0; i < progresses.size(); i++) {
+		checker.push_back(ceil((100 - progresses[i]) / speeds[i]));
 	}
 
 	for (int i = 0; i < checker.size(); i++) {
-		if (checker.size() > i + 1) {
-			if (checker[i] == checker[i + 1]) {
-				num++;
-			}
-			else {
-				answer.push_back(num);
-				num = 1;
-			}
-		}
-		else {
+		cout << checker[i] << ", ";
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < checker.size(); i++) {
+		if (i == 0) {
 			answer.push_back(1);
+		} else if (i < checker.size()) {
+			if (checker[i-1] >= checker[i])
+				answer.back() += 1;
+			else 
+				answer.push_back(1);
 		}
+	}
+	for (int i = 0; i < answer.size(); i++) {
+		cout << answer[i] << ", ";
 	}
 
 	return answer;
@@ -77,25 +62,17 @@ int main() {
 	int num = 1;
 
 	#pragma region PutData
-		progresses.push_back(95);
-		progresses.push_back(90);
-		progresses.push_back(99);
-		progresses.push_back(99);
-		progresses.push_back(80);
-		progresses.push_back(99);
+		progresses.push_back(93);
+		progresses.push_back(30);
+		progresses.push_back(55);
 
 		speeds.push_back(1);
-		speeds.push_back(1);
-		speeds.push_back(1);
-		speeds.push_back(1);
-		speeds.push_back(1);
-		speeds.push_back(1);
+		speeds.push_back(30);
+		speeds.push_back(5);
 	#pragma endregion
 
-		for (int i = 0; i < solution(progresses, speeds).size(); i++)
-		{
-			cout << solution(progresses, speeds)[i]<<endl;
-		}
+		
+		solution(progresses, speeds);
 	
 	
 

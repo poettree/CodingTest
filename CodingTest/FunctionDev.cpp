@@ -26,7 +26,7 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
 	}
 
 	for (int i = 0; i < progresses.size(); i++) {
-		checker.push_back(ceil((100 - progresses[i]) / speeds[i]));
+		checker.push_back(ceil((100 - progresses[i]) / (double)speeds[i]));
 	}
 
 	for (int i = 0; i < checker.size(); i++) {
@@ -39,8 +39,10 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
 		if (i == 0) {
 			answer.push_back(1);
 		} else if (i < checker.size()) {
-			if (checker[i-1] >= checker[i])
+			if (checker[i - 1] >= checker[i]) {
 				answer.back() += 1;
+				checker[i] = checker[i - 1];
+			}
 			else 
 				answer.push_back(1);
 		}
@@ -62,7 +64,7 @@ int main() {
 	int num = 1;
 
 	#pragma region PutData
-		progresses.push_back(93);
+		progresses.push_back(70);
 		progresses.push_back(30);
 		progresses.push_back(55);
 

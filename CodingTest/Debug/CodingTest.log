@@ -1,13 +1,12 @@
 ﻿  FunctionDev.cpp
-c1xx : warning C4199: C++/CLI, C++/CX 또는 OpenMP에서는 2단계 이름 조회가 지원되지 않습니다. /Zc:twoPhase-를 사용하세요.
-c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(28): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(29): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Git\CodingTest\CodingTest\FunctionDev.cpp(28,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git\CodingTest\CodingTest\FunctionDev.cpp(29,25): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
               _Ty=int
           ]
-c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(32): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(38): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(41): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\leeh3\documents\github\codingtest\codingtest\functiondev.cpp(48): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  CodingTest.vcxproj -> C:\Users\leeh3\Documents\GitHub\CodingTest\CodingTest\Debug\CodingTest.exe
+D:\Git\CodingTest\CodingTest\FunctionDev.cpp(32,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git\CodingTest\CodingTest\FunctionDev.cpp(38,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git\CodingTest\CodingTest\FunctionDev.cpp(41,16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git\CodingTest\CodingTest\FunctionDev.cpp(50,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  CodingTest.vcxproj -> D:\Git\CodingTest\Debug\CodingTest.exe

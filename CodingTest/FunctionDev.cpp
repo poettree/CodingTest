@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <windows.h>
+#include <Windows.h>
 #include <queue>
 #include<algorithm>
 

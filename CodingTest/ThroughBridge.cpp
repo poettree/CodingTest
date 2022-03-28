@@ -1,3 +1,4 @@
+//문제 출처:https://programmers.co.kr/job_positions/6376
 
 #include <iostream>
 #include <string>
@@ -15,60 +16,79 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 	bool finished = false;
 	bool overweight = false;
 	bool overlength = false;
+	bool remainOnBridge = false;
+	bool remainOnGround = false;
 
 	//변수 및 추가 입력 값
-	vector<int> wait_on_bridge;
+	vector<int> wait_on_bridge = {};
 	int sum_wait_on_bridge = 0;
 
+	//!finished
 
-
-	while (finished)
-	{
-		seconds++;
-
-		//모든 트럭이 이동 했을때 완료
-		if ((truck_weights.size() == 0)&&(wait_on_bridge.size()==0))
-		{
+	while (!finished) {
+		
+		//최종 조건: 땅과 다리 모든 트럭이 이동 했을때
+		if (!remainOnGround && !remainOnBridge) {
 			finished = true;
 		}
 
-		//대기중인 트럭이 다리위에 올라갔을때
-		wait_on_bridge.push_back(truck_weights[0]);
-		truck_weights.erase(truck_weights.begin());
-		
-
-		//wait_on_bridge는 현재 '다리 위에' 있는 트럭의 정보이기에, 트럭의 수가 다리의 길이보다 길다면, overlength를 true로 변환
-		if (bridge_length > wait_on_bridge.size()) {
+		//트럭이 땅->다리로 이동이 가능한지 확인
+		//트럭 1대가 추가로 이동이 가능한가?
+		if (bridge_length < wait_on_bridge.size() + 1)
 			overlength = true;
-		}
 
-		//'다리 위에'있는 트럭의 총 무게가 다리가 버틸 수 있는 무게보다 크다면, overweight를 true로 변환
-		for (int i = 0; i < wait_on_bridge.size(); i++) {
+		if (truck_weights.size() > 0)
+			remainOnGround = true;
+		else
+			remainOnGround = false;
+
+		if (wait_on_bridge.size() > 0)
+			remainOnBridge = true;
+		else
+			remainOnBridge = false;
+
+		for (int i = 0; i < wait_on_bridge.size(); i++) 
 			sum_wait_on_bridge += wait_on_bridge[i];
+
+		if (remainOnGround) {
+			if (weight < sum_wait_on_bridge + truck_weights[0])
+				overweight = true;
+		}
+		else if (weight < sum_wait_on_bridge) {
+			if (weight < sum_wait_on_bridge)
+				overweight = true;
+		}
+		else {
+			overweight = false;
 		}
 
-		if (weight > sum_wait_on_bridge) {
-			overweight = true;
+		//트럭이 땅에서 다리로 올라감
+		//조건: 트럭이 땅에 있어야하고, 올라갔을때 트럭의 무게와 수가, 다리의 기준에 맞아야 함
+		if (remainOnGround && !overweight && !overlength) {
+			wait_on_bridge.push_back(truck_weights.front());
+			truck_weights.erase(truck_weights.begin());
 		}
 
-		//현재 다리 위 트럭의 수와 무게 검사
-		if (overlength && overweight) {
-			continue;
+		//다리에 있는 트럭이 넘어감
+		//다리에 트럭이 남아 있다면
+		if (remainOnBridge)
+		{
+			wait_on_bridge.erase(wait_on_bridge.begin());
 		}
 
-		//다리위의 트럭이 다리를 지나갔을때
-		wait_on_bridge.erase(wait_on_bridge.begin());
+		printf("%d | %d | %d\n", truck_weights.size(), wait_on_bridge.size(), seconds);
+		printf("%d | %d\n\n", remainOnGround, remainOnBridge);
 
-
-		printf("%d %d, %d", truck_weights.size(), wait_on_bridge.size(),seconds);
+		seconds++;
 	}
-	system("pause");
 
 	answer = seconds;
+	printf("Answer : %d ", answer);
 
+	system("pause");
 	return answer;
 }
 
 void main() {
-	solution();
+	solution(2, 10, { 7,4,5,6 });
 }

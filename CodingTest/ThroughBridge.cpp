@@ -26,12 +26,6 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 	//!finished
 
 	while (!finished) {
-		
-		//최종 조건: 땅과 다리 모든 트럭이 이동 했을때
-		if (!remainOnGround && !remainOnBridge) {
-			finished = true;
-		}
-
 		//트럭이 땅->다리로 이동이 가능한지 확인
 		//트럭 1대가 추가로 이동이 가능한가?
 		if (bridge_length < wait_on_bridge.size() + 1)
@@ -46,6 +40,12 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 			remainOnBridge = true;
 		else
 			remainOnBridge = false;
+
+		//최종 조건: 땅과 다리 모든 트럭이 이동 했을때
+		if (!remainOnGround && !remainOnBridge) {
+			finished = true;
+			break;
+		}
 
 		for (int i = 0; i < wait_on_bridge.size(); i++) 
 			sum_wait_on_bridge += wait_on_bridge[i];
@@ -70,19 +70,26 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 		}
 
 		//다리에 있는 트럭이 넘어감
-		//다리에 트럭이 남아 있다면
+		//조건:다리에 트럭이 남아 있다면
 		if (remainOnBridge)
 		{
 			wait_on_bridge.erase(wait_on_bridge.begin());
 		}
 
 		printf("%d | %d | %d\n", truck_weights.size(), wait_on_bridge.size(), seconds);
-		printf("%d | %d\n\n", remainOnGround, remainOnBridge);
+		printf("%d | %d \n", remainOnGround, remainOnBridge);
+		printf("%d | %d \n\n", overweight, overlength);
 
 		seconds++;
+		sum_wait_on_bridge = 0;
+		finished = false;
+		overweight = false;
+		overlength = false;
+		remainOnBridge = false;
+		remainOnGround = false;
 	}
 
-	answer = seconds;
+	answer = seconds+bridge_length-1;
 	printf("Answer : %d ", answer);
 
 	system("pause");
@@ -90,5 +97,5 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 }
 
 void main() {
-	solution(2, 10, { 7,4,5,6 });
+	solution(100, 100, { 10});
 }

@@ -1,6 +1,1 @@
-﻿  ThroughBridge.cpp
-c1xx : warning C4199: C++/CLI, C++/CX 또는 OpenMP에서는 2단계 이름 조회가 지원되지 않습니다. /Zc:twoPhase-를 사용하세요.
-c:\users\leeh3\documents\github\codingtest\codingtest\throughbridge.cpp(31): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\leeh3\documents\github\codingtest\codingtest\throughbridge.cpp(50): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\leeh3\documents\github\codingtest\codingtest\throughbridge.cpp(99): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-LINK : fatal error LNK1209: 'C:\Users\leeh3\Documents\GitHub\CodingTest\Debug\CodingTest.pdb' 프로그램 데이터베이스가 이전 링크와 다릅니다. 다시 링크하거나 다시 빌드하십시오.
+﻿  CodingTest.vcxproj -> C:\Users\leeh3\Documents\GitHub\CodingTest\Debug\CodingTest.exe

@@ -22,6 +22,11 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 	//변수 및 추가 입력 값
 	vector<int> wait_on_bridge = {};
 	int sum_wait_on_bridge = 0;
+	vector<int> on_bridge = {};
+
+	for (int i = 0; i < bridge_length; i++) {
+		on_bridge.push_back(0);
+	}
 
 	//!finished
 
@@ -79,6 +84,7 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 		printf("%d | %d | %d\n", truck_weights.size(), wait_on_bridge.size(), seconds);
 		printf("%d | %d \n", remainOnGround, remainOnBridge);
 		printf("%d | %d \n\n", overweight, overlength);
+		printf("%d\n\n", on_bridge.size());
 
 		seconds++;
 		sum_wait_on_bridge = 0;

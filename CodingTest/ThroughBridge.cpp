@@ -43,11 +43,9 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 				overweight = true;
 		}
 		else if (weight < sum_wait_on_bridge) {
-			if (weight < sum_wait_on_bridge) {
 				overweight = true;
 				//만약 overwait라서 트럭이 못올라간다면 빈칸 추가
 				wait_on_bridge.push_back(0);
-			}
 		}
 		else {
 			overweight = false;
@@ -78,8 +76,14 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 		//트럭이 땅에서 다리로 올라감
 		//조건: 트럭이 땅에 있어야하고, 올라갔을때 트럭의 무게와 수가, 다리의 기준에 맞아야 함
 		if (remainOnGround && !overweight && !overlength) {
+			wait_on_bridge.erase(wait_on_bridge.begin());
 			wait_on_bridge.push_back(truck_weights.front());
 			truck_weights.erase(truck_weights.begin());
+		}
+
+		if (!overlength)
+		{
+			wait_on_bridge.push_back(0);
 		}
 
 		//다리에 있는 트럭이 넘어감
@@ -115,5 +119,5 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 }
 
 void main() {
-	solution(4, 10, {1,9,7,3});
+	solution(2,10, { 7,4,5,6 });
 }

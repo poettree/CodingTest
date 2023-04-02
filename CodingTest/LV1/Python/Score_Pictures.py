@@ -1,6 +1,6 @@
 #information
 #Time = 1:51:11
-#Description: 딕셔너리를 이용하여 해결을 시도 했는데, Key와 Value에 대한 부분을 명확하게 이해하지 못하고 진행하다 보니, 시간지연이 되었다.
+#Description: 딕셔너리를 이용하여 해결을 시도 했는데, 리스트로 Key와 Value로 넘기는 부분에서 명확하게 이해하지 못하고 진행하다 보니, 시간지연이 되었다.
 
 #Answer
 def solution(name, yearning, photo):

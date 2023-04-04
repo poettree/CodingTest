@@ -25,6 +25,7 @@ def solution(park, routes):
     map = []
     new_routes = []
     obstacle = []
+    temp = []
     
     #Pretreatment
     for i in range (len(park)):
@@ -42,27 +43,30 @@ def solution(park, routes):
                 obstacle.append([i,j])
     print(answer)
     print(obstacle)
+    print('--------')
 
     #Main
+    temp.extend(answer)
+    
     for i in range (len(new_routes)):
         for times in range (int(new_routes[i][1])):
             answer[0] += AddToAnswer(new_routes[i][0])[0]
             answer[1] += AddToAnswer(new_routes[i][0])[1]
+            print('answer', answer)
 
             for x in range (len(obstacle)):
-                if(answer == obstacle[x]):
-                    answer[0] -= AddToAnswer(new_routes[i][0])[0]
-                    answer[1] -= AddToAnswer(new_routes[i][0])[1]
-            
-    print("Answer:",answer)
-            
+                if(answer == obstacle[x] or answer[0] >= len(map)-1 or answer[1] >= len(map[1])-1):
+                    answer[0]=temp[0]
+                    answer[1]=temp[1]
 
-    print(new_routes)
-    print(map)
-    
+                    print(answer)
+                    print('temp',temp)
+                    break
+    temp[0]=answer[0]
+    temp[1]=answer[1]
     return answer
 
 #Test Code
-park = ["SOO","OOO","OOO"]
+park = ["OSO","OOO", "OXO","OOO"]
 routes = ["E 2","S 2","W 1"]
-solution(park,routes)
+print(solution(park,routes))

@@ -1,49 +1,27 @@
 #information
-#Time = 1:20:13
-#Description: 1번째 시도한 부분에서, Callings가 반복적으로 불리는 부분에 대하여, 전처리를 하고 진행하는 방식으로 했지만, 여전히 느림
-
+#Time = 00:32:23
+#Description: insert()와 pop() 또는 remove()등을 쓰지 않고, 딕셔너리로 등수를 매겨 업데이트하는 방식으로 사용
 
 #Answer
 def solution(players, callings):
-#define
-    answer = []
-    callingName = ''
-    callingTimes = 1
+    #Position : Index
+    p_idx_dict = {player: i for i, player in enumerate(players)}
+    #Index : Position
+    idx_p_dict = {i:player for i, player in enumerate(players)}
 
-#Pretreatment
+    for playerName in callings:
+        cur_idx = p_idx_dict[playerName] #Called Player
+        pre_idx = cur_idx-1 #pre Called Player
+        cur_player = playerName
+        pre_player = idx_p_dict[pre_idx]
 
+        p_idx_dict[cur_player] = pre_idx #current player be pre player index
+        p_idx_dict[pre_player] = cur_idx #pre player be current player index
 
-#Main
-    while len(callings) > 0:
-        for times in range(len(callings)):
-            callingName = callings[times]
-            if(times < len(callings)-1):
-                if(callings[times] == callings[times+1]):
-                    callingTimes += 1
-                    print(callings[times])
-                elif(times+1 == len(callings)): 
-                    callingTimes += 1
-                    print(callings[times])
-                    break
-                else: break
-        del callings[0:callingTimes]
+        idx_p_dict[pre_idx] = cur_player
+        idx_p_dict[cur_idx] = pre_player #Update keys
 
-        for i in range(len(players)):
-            if(players[i] == callingName):
-                players.insert(i-callingTimes,callingName)
-                print(i,":",callingTimes)
-                print(i,":",players)
-                if(callingTimes == 1):
-                    players.pop(i+callingTimes)
-                else: players.pop(i+callingTimes-1)
-                callingTimes = 1
-                print(i,":",players)
-                print(i,":",len(callings))
-                break
-                
-    answer = players
-
-    return answer
+    return list(idx_p_dict.values())
 
 #Test Code
 players = ["mumu", "soe", "poe", "kai", "mine"]

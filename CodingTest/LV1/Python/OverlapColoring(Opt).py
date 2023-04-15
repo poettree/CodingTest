@@ -4,9 +4,9 @@
 
 #Answer
 def solution(n, m, section):
-    #Optimize: 페인트롤러가 1일때는 굳이 section을 검사할 필요가 없다.
-    if(m == 1): 
-         return len(section)
+    #Optimize: 페인트롤러가 1일때는 굳이 section을 검사할 필요가 없다. 하지만, 특수 상황이 적다면, 오히려 복잡도를 증가시킨다.
+    # if(m == 1): 
+    #      return len(section)
     
     #define
     Painted = section[0]

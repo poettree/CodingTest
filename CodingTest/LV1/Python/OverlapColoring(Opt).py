@@ -4,21 +4,19 @@
 
 #Answer
 def solution(n, m, section):
+    #Optimize: 페인트롤러가 1일때는 굳이 section을 검사할 필요가 없다.
+    if(m == 1): 
+         return len(section)
+    
     #define
-    painting_Progress = section[0] + m -1
+    Painted = section[0]
     painting = 1
 
     #Main
     for i in section:
-		#Optimize: 페인트롤러가 1일때는 굳이 section을 검사할 필요가 없다.
-        if(m == 1): 
-            return len(section)
-        elif(i > painting_Progress):
+        if(i - Painted >= m):
             painting += 1
-            painting_Progress = i + (m-1)
-
-            if(painting_Progress > max(section)):
-                break
+            Painted = i
     
     return painting
 

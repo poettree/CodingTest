@@ -5,24 +5,23 @@
 #Answer
 def solution(k, score):
     #define
-    answer = []
     Ranking = []
+    notice = []
 
 
     #Main
-    notice = sorted(score,reverse=True)
+    for i in score:
+        Ranking.append(i)
+        Ranking.sort()
+        
+        if(len(Ranking) > k):
+            Ranking.pop(0)
+        
+        notice.append(Ranking[0])
 
-    if(len(Ranking) < k):
-        for i in notice:
-            Ranking.append(i)
-            answer.append(Ranking[0])
-    if(len(Ranking) >= k):
-        for i in notice:
-            
+        print(Ranking)
 
-
-
-    return notice[k-1]
+    return notice
 
 #Test Code
 k = 3

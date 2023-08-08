@@ -9,6 +9,10 @@ class Car:
         self.__model = model
         return self.__model
     
+    def setModel(self, model):
+        self.__model = model
+        return self.__model
+    
     def getYear(self):
         return self.__year
     
@@ -20,7 +24,6 @@ class Car:
     def printDiscription(self):
         print("Model: ", self.__model)
         print("Year: ", self.__year)
+        
     
-    
-a = 5
     

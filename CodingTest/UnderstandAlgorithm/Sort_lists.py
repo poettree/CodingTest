@@ -5,7 +5,6 @@ class Sort:
         self.__array = arr
         return self.__array
         
-    
     def bubble_sort(self):
         arr = self.__array
         for i in range(len(arr) - 1, 0, -1):
@@ -67,15 +66,15 @@ class Sort:
         self.__array = arr
         return self.__array
     
-    
-    def merge_sort(self):
+    def merge_sort(self, arr = None):
         #region Performance Detail
             #Worth case performance: O(n*log n)
             #Best case performance: O(n*log n)
             #Average case performance: O(n*log n)
             #Worth case space complexity: O(n)
         #endregion
-        arr = self.__array
+        if arr is None:
+            arr = self.__array
         
         if len(arr) > 1:
             #  r is the point where the arr is divided into two subarrays
@@ -84,8 +83,8 @@ class Sort:
             M = arr[r:]
 
             # Sort the two halves
-            self.merge_sort(L)
-            self.merge_sort(M)
+            L = self.merge_sort(L)
+            M = self.merge_sort(M)
 
             i = j = k = 0
 
@@ -114,3 +113,8 @@ class Sort:
         
         self.__array = arr
         return self.__array
+    
+    
+    
+    
+    

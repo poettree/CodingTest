@@ -83,8 +83,8 @@ class Sort:
             M = arr[r:]
 
             # Sort the two halves
-            L = self.merge_sort(L)
-            M = self.merge_sort(M)
+            self.merge_sort(L)
+            self.merge_sort(M)
 
             i = j = k = 0
 

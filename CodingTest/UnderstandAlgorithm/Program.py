@@ -29,6 +29,11 @@ class Sorter:
         
         return arr
     
-
+    def quick_arr(arr):
+            quick = Sort_lists.Sort()
+            quick.setArray(arr)
+            quick.quick_sort()
+            
+            return arr
 array = [6,2,4,3]
-print(Sorter.merge_arr(array))
+print(Sorter.quick_arr(array))

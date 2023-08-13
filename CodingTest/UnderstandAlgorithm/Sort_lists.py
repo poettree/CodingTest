@@ -83,8 +83,8 @@ class Sort:
             M = arr[r:]
 
             # Sort the two halves
-            self.merge_sort(L)
-            self.merge_sort(M)
+            L = self.merge_sort(L)
+            M = self.merge_sort(M)
 
             i = j = k = 0
 
@@ -114,7 +114,33 @@ class Sort:
         self.__array = arr
         return self.__array
     
-    
-    
-    
+    def partition(self, arr=None, low=0, high=None):
+        if arr is None:
+            arr = self.__array
+        if high is None:
+            high = len(arr) - 1
+
+        pivot = arr[high]
+        i = low - 1
+
+        for j in range(low, high):
+            if arr[j] <= pivot:
+                i = i + 1
+                arr[i], arr[j] = arr[j], arr[i]
+
+        arr[i + 1], arr[high] = arr[high], arr[i + 1]
+        return i + 1
+
+    def quick_sort(self, arr=None, low=0, high=None):
+        if arr is None:
+            arr = self.__array
+        if high is None:
+            high = len(arr) - 1
+
+        if low < high:
+            pi = self.partition(arr, low, high)
+            self.quick_sort(arr, low, pi - 1)
+            self.quick_sort(arr, pi + 1, high)
+        
+        
     
